@@ -65,22 +65,6 @@ while True:
         elif fingers1 == exit:
             sys.exit()
         
-
-        #if len(hands) == 2:
-            # Hand 2
-        #    continue
-        #    hand2 = hands[1]
-        #    lmList2 = hand2["lmList"]  # List of 21 Landmark points
-        #    bbox2 = hand2["bbox"]  # Bounding box info x,y,w,h
-        #    centerPoint2 = hand2['center']  # center of the hand cx,cy
-        #    handType2 = hand2["type"]  # Hand Type "Left" or "Right"
-
-        #    fingers2 = detector.fingersUp(hand2)
-
-            # Find Distance between two Landmarks. Could be same hand or different hands
-            # length, info, img = detector.findDistance(lmList1[8], lmList2[8], img)  # with draw
-            # length, info = detector.findDistance(lmList1[8], lmList2[8])  # with draw
-   
     # Display
     cv2.imshow("Image", img)
     cv2.waitKey(1)
