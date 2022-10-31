@@ -45,20 +45,29 @@ while True:
         # handType1 = hand1["type"]  # Handtype Left or Right
 
         fingers1 = detector.fingersUp(hand1)
-        if fingers1 == up:
-            write_esp(1)
-            print('Up')
-        elif fingers1 == down:
-            write_esp(-1)
-            print('Down')
-        elif fingers1 == idle:
-            write_esp(0)
-            print('Idle')
-        elif fingers1 == exit:
-            sys.exit()
         
+        if fingers1 == [1,0,0,0,0]:
+            track = True
+            
+        if track:
+            if fingers1 == up:
+                write_esp(1)
+                print('Up')
+            elif fingers1 == down:
+                write_esp(-1)
+                print('Down')
+            elif fingers1 == idle:
+                write_esp(0)
+                print('Idle')
+            elif fingers1 == exit:
+                sys.exit()
+            
+    else:
+        track = False
+    if track:
+        frame = frame_draw_hand
+    cv2.imshow("Image", frame) 
     # Display
-    cv2.imshow("Image", img)
     cv2.waitKey(1)
 
 cap.release()
