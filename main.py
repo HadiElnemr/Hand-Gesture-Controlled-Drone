@@ -1,3 +1,4 @@
+from copy import deepcopy
 import sys
 import cv2
 import numpy as np
@@ -7,13 +8,14 @@ from parameters import *
 
 
 cap = cv2.VideoCapture(0)
-detector = HandDetector(detectionCon=0.8, maxHands=2)
+detector = HandDetector(detectionCon=0.8, minTrackCon=0.5, maxHands=1)
+track = False
 
 while True:
     output = None
 
     # Get image frame
-    success, img = cap.read()
+    success, frame = cap.read()
     
     # find the colors within the specified BGR colour boundaries and apply the mask
     mask = cv2.inRange(img, lower, upper)
