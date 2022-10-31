@@ -1,28 +1,9 @@
 import sys
-from cvzone.HandTrackingModule import HandDetector
 import cv2
 import numpy as np
-import serial
-import time
-
-
-# fingers configs
-up = [0,1,0,0,0]
-down = [0,1,1,0,0]
-idle = [0,1,1,1,0]
-exit = [0,0,0,0,1]
-
-# define the black colour BGR boundaries
-# For black colour
-lower = [0, 0, 0]
-upper = [5, 5, 5]
-# For Red colour
-lower = [0, 0, 0]
-upper = [25, 25, 250]
-
-# create NumPy arrays from the boundaries
-lower = np.array(lower, dtype = "uint8")
-upper = np.array(upper, dtype = "uint8")
+from cvzone.HandTrackingModule import HandDetector
+from util import *
+from parameters import *
 
 
 cap = cv2.VideoCapture(0)
