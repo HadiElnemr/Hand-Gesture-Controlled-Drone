@@ -51,16 +51,16 @@ while True:
             
         if track:
             if fingers1 == up:
-                write_esp(1)
+                write_esp('u')
                 print('Up')
             elif fingers1 == down:
                 write_esp(-1)
-                print('Down')
+                print('d')
             elif fingers1 == idle:
                 write_esp(0)
-                print('Idle')
+                print('i')
             elif fingers1 == exit:
-                write_esp(0)
+                write_esp('i')
                 sys.exit()
             
     else:
