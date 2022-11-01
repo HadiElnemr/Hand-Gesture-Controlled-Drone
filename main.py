@@ -8,7 +8,7 @@ from parameters import *
 
 
 cap = cv2.VideoCapture(0)
-detector = HandDetector(detectionCon=0.8, minTrackCon=0.5, maxHands=1)
+detector = HandDetector(detectionCon=0.8, minTrackCon=0.6, maxHands=1)
 track = False
 
 while True:
@@ -60,6 +60,7 @@ while True:
                 write_esp(0)
                 print('Idle')
             elif fingers1 == exit:
+                write_esp(0)
                 sys.exit()
             
     else:
