@@ -1,9 +1,12 @@
 import serial
 import time
-try:
-    esp32 = serial.Serial(port='COM5', baudrate=115200, timeout=.1)
-except:
-    print('Connection with esp not found')
+# try:
+esp32 = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=.1)
+# except:
+    # print('Connection with esp not found')
 
 def write_esp(x):
-    esp32.write(bytes(x, 'utf-8'))
+    # try:
+    esp32.write(bytes(str(x), 'utf-8'))
+    # except:
+    # print('Connection not found')
