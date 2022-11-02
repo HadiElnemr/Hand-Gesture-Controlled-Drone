@@ -54,11 +54,11 @@ while True:
                 write_esp('u')
                 print('Up')
             elif fingers1 == down:
-                write_esp(-1)
-                print('d')
+                write_esp('d')
+                print('Down')
             elif fingers1 == idle:
-                write_esp(0)
-                print('i')
+                write_esp('i')
+                print('Idle')
             elif fingers1 == exit:
                 write_esp('i')
                 sys.exit()
