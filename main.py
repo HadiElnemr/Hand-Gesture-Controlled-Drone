@@ -3,9 +3,9 @@ import sys
 import cv2
 import numpy as np
 from cvzone.HandTrackingModule import HandDetector
-from util import *
+#from util import *
 from parameters import *
-
+from server import *
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(detectionCon=0.8, minTrackCon=0.6, maxHands=1)
@@ -51,7 +51,7 @@ while True:
             
         if track:
             if fingers1 == up:
-                write_esp('u')
+                write_esp('a')
                 print('Up')
             elif fingers1 == down:
                 write_esp('d')
