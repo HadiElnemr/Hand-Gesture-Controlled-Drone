@@ -5,11 +5,16 @@ import numpy as np
 from cvzone.HandTrackingModule import HandDetector
 #from util import *
 from parameters import *
+# from cross_corr import *
 from server import *
+import random
 
 cap = cv2.VideoCapture(0)
 detector = HandDetector(detectionCon=0.8, minTrackCon=0.6, maxHands=1)
 track = False
+
+template = None
+imgs = []
 
 while True:
     output = None
@@ -50,12 +55,20 @@ while True:
             track = True
             
         if track:
-            if fingers1 == up:
+            key = cv2.waitKey(1)
+            if key == ord('y'):
+                cv2.imwrite(f'im{int(random.random()*100)}.png', frame)
+            elif key == ord('q'):
+                sys.exit(1)
+
+            if fingers1 == up:    
+                # if input('Save image?') == 'y':
+                # cross_correlate(template, imgs)
                 write_esp('a')
                 print('Up')
             elif fingers1 == down:
                 write_esp('d')
-                print('Down')
+                print('Off')
             elif fingers1 == idle:
                 write_esp('i')
                 print('Idle')
