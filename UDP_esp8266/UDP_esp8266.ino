@@ -3,9 +3,6 @@
 
 const char *ssid = "HadiElnemr"; // The name of the Wi-Fi network that will be created
 const char *password = "21012101";   // The password required to connect to it, leave blank for an open network
-// const char *ssid = "AFFN_EG2"; // The name of the Wi-Fi network that will be created
-// const char *password = "Tiger@16";   // The password required to connect to it, leave blank for an open network
-
 
 WiFiUDP Udp;
 unsigned int localUdpPort = 4210;  // local port to listen on
